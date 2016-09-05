@@ -1539,17 +1539,12 @@
       ]
     },
     "literal-module-import": {
-      "begin": "(?<!\\.)\\s*+\\b(import)(?!\\s*:)\\b",
-      "end": "\\s*(?:(?:(\\bfrom\\b)?+\\s++(('|\")([^\"']*)(\\k<-3>)))|(?=;|^\\s*\\b(if|switch|try|var|let|const|static|function|return|class|do|for|while|debugger|export|import|yield|type|declare|interface)\\b|\\)|}))",
+      "begin": "(?<!\\.)\\s*+\\b(import)\\b(?!\\s*:)",
       "beginCaptures": {
         "1": { "name": "keyword.control.module.js" }
       },
-      "endCaptures": {
-        "1": { "name": "keyword.control.module.js" },
-        "3": { "name": "punctuation.definition.string.begin.js" },
-        "4": { "name": "string.quoted.module.js" },
-        "5": { "name": "punctuation.definition.string.end.js" }
-      },
+      "end": "(?<=(?:'|\"))(?=\\s*(?:;|\\Z))",
+      "name": "meta.import.js",
       "patterns": [
         {
           "match": "\\s*\\b(default)\\b",
@@ -1569,9 +1564,29 @@
         },
         { "include": "#literal-module-as" },
         { "include": "#literal-module-brackets" },
+        { "include": "#import-from-clause" },
         { "include": "#literal-variable" },
         { "include": "#comments" },
-        { "include": "#literal-comma"}
+        { "include": "#literal-comma"},
+        { "include": "#import-module-specifier" }
+      ]
+    },
+    "import-from-clause": {
+      "begin": "\\s*\\b(from)\\b",
+      "beginCaptures": {
+        "1": { "name": "keyword.control.module.js" }
+      },
+      "end": "(?<=(?:'|\"))(?=\\s*(?:;|\\Z))",
+      "patterns": [
+        { "include": "#import-module-specifier" }
+      ]
+    },
+    "import-module-specifier": {
+      "contentName": "string.quoted.module.js",
+      "begin": "(?='|\")",
+      "end": "(?<='|\")",
+      "patterns": [
+        { "include": "#literal-string" }
       ]
     },
     "literal-module-export": {

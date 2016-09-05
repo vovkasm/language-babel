@@ -1,6 +1,9 @@
 // SYNTAX TEST "source.js.jsx"
 
 import defaultMember from "module-name"
+// <- meta.import.js
+ // <- meta.import.js
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.import.js
 // <- keyword.control.module.js
  // <- keyword.control.module.js
 //^^^^               ^^^^                keyword.control.module.js
@@ -9,6 +12,9 @@ import defaultMember from "module-name"
 //                                    ^  punctuation.definition.string.end.js
 //                         ^^^^^^^^^^^   string.quoted.module.js
 import * as name from "module-name"
+// <- meta.import.js
+ // <- meta.import.js
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.import.js
 // <- keyword.control.module.js
  // <- keyword.control.module.js
 //^^^^           ^^^^                keyword.control.module.js
@@ -19,6 +25,9 @@ import * as name from "module-name"
 //                                ^  punctuation.definition.string.end.js
 //                     ^^^^^^^^^^^   string.quoted.module.js
 import { member } from "module-name"
+// <- meta.import.js
+ // <- meta.import.js
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.import.js
 // <- keyword.control.module.js
  // <- keyword.control.module.js
 //^^^^            ^^^^                keyword.control.module.js
@@ -28,6 +37,9 @@ import { member } from "module-name"
 //                                 ^  punctuation.definition.string.end.js
 //                      ^^^^^^^^^^^   string.quoted.module.js
 import { member as alias } from "module-name"
+// <- meta.import.js
+ // <- meta.import.js
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.import.js
 // <- keyword.control.module.js
  // <- keyword.control.module.js
 //^^^^                     ^^^^                keyword.control.module.js
@@ -38,6 +50,9 @@ import { member as alias } from "module-name"
 //                                          ^  punctuation.definition.string.end.js
 //                               ^^^^^^^^^^^   string.quoted.module.js
 import { member1 , member2 } from "module-name"
+// <- meta.import.js
+ // <- meta.import.js
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.import.js
 // <- keyword.control.module.js
  // <- keyword.control.module.js
 //^^^^                       ^^^^                keyword.control.module.js
@@ -48,6 +63,9 @@ import { member1 , member2 } from "module-name"
 //                                            ^  punctuation.definition.string.end.js
 //                                 ^^^^^^^^^^^   string.quoted.module.js
 import { member1 , member2 as alias2 , [] } from "module-name"
+// <- meta.import.js
+ // <- meta.import.js
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.import.js
 // <- keyword.control.module.js
  // <- keyword.control.module.js
 //^^^^                                      ^^^^                keyword.control.module.js
@@ -60,6 +78,9 @@ import { member1 , member2 as alias2 , [] } from "module-name"
 //                                                           ^  punctuation.definition.string.end.js
 //                                                ^^^^^^^^^^^   string.quoted.module.js
 import defaultMember, { member [ , [] ] } from "module-name"
+// <- meta.import.js
+ // <- meta.import.js
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.import.js
 // <- keyword.control.module.js
  // <- keyword.control.module.js
 //^^^^                                    ^^^^                keyword.control.module.js
@@ -72,6 +93,9 @@ import defaultMember, { member [ , [] ] } from "module-name"
 //                                                         ^  punctuation.definition.string.end.js
 //                                              ^^^^^^^^^^^   string.quoted.module.js
 import defaultMember, * as name from "module-name";
+// <- meta.import.js
+ // <- meta.import.js
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   meta.import.js
 // <- keyword.control.module.js
  // <- keyword.control.module.js
 //^^^^                          ^^^^                 keyword.control.module.js
@@ -84,6 +108,9 @@ import defaultMember, * as name from "module-name";
 //                                    ^^^^^^^^^^^    string.quoted.module.js
 //                                                ^  punctuation.terminator.statement.js
 import "module-name"
+// <- meta.import.js
+ // <- meta.import.js
+//^^^^^^^^^^^^^^^^^^  meta.import.js
 // <- keyword.control.module.js
  // <- keyword.control.module.js
 //^^^^                keyword.control.module.js
@@ -297,19 +324,25 @@ export type User = {
  // <- punctuation.terminator.statement.js
 
  import {
+ // <- meta.import.js
+//^^^^^^^  meta.import.js
  // <- keyword.control.module.js
 //^^^^^    keyword.control.module.js
 //      ^  meta.brace.curly.js
    amodule, // this is a comment
+// ^^^^^^^^                       meta.import.js
 // ^^^^^^^                        variable.other.readwrite.js
 //        ^                       meta.delimiter.comma.js
 //          ^^ ^^^^ ^^ ^ ^^^^^^^  comment.line.double-slash.js
 //          ^^                    punctuation.definition.comment.js
    another module // this is a comment
+// ^^^^^^^^^^^^^^                       meta.import.js
 // ^^^^^^^ ^^^^^^                       variable.other.readwrite.js
 //                ^^ ^^^^ ^^ ^ ^^^^^^^  comment.line.double-slash.js
 //                ^^                    punctuation.definition.comment.js
  } from "aaaa"
+ // <- meta.import.js
+ // ^^^^^^^^^^  meta.import.js
  // <- meta.brace.curly.js
 // ^^^^         keyword.control.module.js
 //      ^       punctuation.definition.string.begin.js

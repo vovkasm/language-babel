@@ -35,8 +35,9 @@ describe 'Grammar', ->
   grammarTest path.join(__dirname, 'fixtures/grammar/large files/bundle.js')
   grammarTest path.join(__dirname, 'fixtures/grammar/large files/jquery-2.1.4.min.js')
 
-  # # es2015 check
-  grammarTest path.join(__dirname, 'fixtures/grammar/everythingJs/es2015-module.js')
+  # es2015 check
+  describe 'es2015 check', ->
+    grammarTest path.join(__dirname, 'fixtures/grammar/everythingJs/es2015-module.js')
 
   # todo,jsdoc,...
   grammarTest path.join(__dirname, 'fixtures/grammar/doc-keywords.js')
@@ -49,5 +50,5 @@ describe 'Grammar', ->
 
   # misc Tests
   grammarTest path.join(__dirname, 'fixtures/grammar/misc.js')
-  describe 'ES6 modules', ->
+  fdescribe 'ES6 modules', ->
     grammarTest path.join(__dirname, 'fixtures/grammar/es6module.js')

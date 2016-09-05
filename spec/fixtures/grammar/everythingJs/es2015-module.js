@@ -12,12 +12,16 @@
 //        ^^^^^ ^^^^^^^^      variable.other.readwrite.js
 
 import i0 from "module";
+// <- meta.import.js
+ // <- meta.import.js
+//^^^^^^^^^^^^^^^^^^^^^   meta.import.js
 // <- keyword.control.module.js
  // <- keyword.control.module.js
 //^^^^    ^^^^            keyword.control.module.js
 //     ^^                 variable.other.readwrite.js
 //             ^          punctuation.definition.string.begin.js
 //                    ^   punctuation.definition.string.end.js
+//             ^^^^^^^^   string.quoted.double.js
 //              ^^^^^^    string.quoted.module.js
 //                     ^  punctuation.terminator.statement.js
 import * as i1 from "module";
@@ -91,6 +95,7 @@ import "module";
 // <- keyword.control.module.js
  // <- keyword.control.module.js
 //^^^^            keyword.control.module.js
+//     ^^^^^^^^   string.quoted.double.js
 //     ^          punctuation.definition.string.begin.js
 //            ^   punctuation.definition.string.end.js
 //      ^^^^^^    string.quoted.module.js
